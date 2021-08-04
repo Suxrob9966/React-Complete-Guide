@@ -1,4 +1,4 @@
-import ExpenseItem from "./components/ExpenseItem";
+import Expenses from "./components/Expenses";
 
 function App() {
   const expenses = [
@@ -27,21 +27,10 @@ function App() {
     <div>
       <h2>Let's get started!</h2>
       <p>This is also visible. Very good </p>
-      <ExpenseItem // we pass expenses array elements as attributes into custom defined element ExpenseItem. the attribute names can be anything. But in ExpenseItem.js file we will have to access these attributes by these names. In that file these attributes will be stored as function parameter called props. We then acccess every attribute element as props[0].title for example.
-        title={expenses[0].title}
-        amount={expenses[0].amount}
-        date={expenses[0].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[1].title}
-        amount={expenses[1].amount}
-        date={expenses[1].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[2].title}
-        amount={expenses[2].amount}
-        date={expenses[2].date}
-      ></ExpenseItem>
+
+      {/*we pass expenses array elements as attributes into custom defined element ExpenseItem. the attribute names can be anything. But in ExpenseItem.js file we will have to access these attributes by these names. In that file these attributes will be stored as function parameter called props. We then acccess every attribute element as props[0].title for example.*/}
+
+      <Expenses items={expenses}></Expenses>
     </div>
   );
 }
