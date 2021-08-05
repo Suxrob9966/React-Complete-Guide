@@ -3,7 +3,7 @@ import Card from "../UI/Card"; // go up one folder and then go into UI folder
 import "./Expenses.css";
 import React from "react";
 
-function Expenses(props) {
+const Expenses = (props) => {
   //   const expensesItems = props.items.map((item) => (
   //     <ExpenseItem title={item.title} amount={item.amount} date={item.date} />
   //   ));    // same with the bottom one
@@ -33,6 +33,6 @@ function Expenses(props) {
       {/* {expensesItems} */}
     </Card>
   );
-}
+};
 
 export default Expenses;
