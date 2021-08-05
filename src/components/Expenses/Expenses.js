@@ -1,5 +1,5 @@
 import ExpenseItem from "./ExpenseItem";
-import Card from "./Card";
+import Card from "../UI/Card"; // go up one folder and then go into UI folder
 import "./Expenses.css";
 import React from "react";
 
