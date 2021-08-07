@@ -1,4 +1,5 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 import React from "react";
 
 const App = () => {
@@ -35,8 +36,7 @@ const App = () => {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <p>This is also visible. Very good </p>
+      <NewExpense />
 
       {/*we pass expenses array elements as attributes into custom defined element ExpenseItem. the attribute names can be anything. But in ExpenseItem.js file we will have to access these attributes by these names. In that file these attributes will be stored as function parameter called props. We then acccess every attribute element as props[0].title for example.*/}
 
