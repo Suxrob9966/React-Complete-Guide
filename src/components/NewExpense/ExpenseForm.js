@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState(""); // we need to pass empty string, because for the first time nothing was rendered on the screen
@@ -54,7 +54,7 @@ const ExpenseForm = () => {
       date: new Date(enteredDate), // construct new date
     };
 
-    console.log(expenseData);
+    props.onSaveExpenseData(expenseData); // we pass the new form inputs up to the parent component (NewExpense)
     setEnteredTitle(""); // to clear the input field
     setEnteredAmount("");
     setEnteredDate("");
