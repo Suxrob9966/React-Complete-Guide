@@ -11,6 +11,11 @@ const Expenses = (props) => {
     setFilteredYear(selectedYear);
   };
 
+  // console.log(typeof selectedYear, typeof props.items[0].date.getFullYear());
+  const filteredExpense = props.items.filter(
+    (item) => item.date.getFullYear().toString() === filteredYear
+  );
+
   return (
     <div>
       <Card className="expenses">
@@ -18,7 +23,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onExpenseFilterHandler={expenseFilterHandler}
         />
-        {props.items.map((expense) => (
+        {filteredExpense.map((expense) => (
           <ExpenseItem
             key={expense.id} // we need id for performance, without id react will visit every element when rendering the list
             title={expense.title}
