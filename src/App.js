@@ -38,7 +38,7 @@ const App = () => {
   const addExpenseHandler = (expense) => {
     console.log("In app.js");
     console.log(expense);
-    setExpenses((prevState) => [...prevState, expense]);
+    setExpenses((prevState) => [expense, ...prevState]);
     // setExpenses([...dummyExpenses, expense]);// the same as above but not safer
   };
 

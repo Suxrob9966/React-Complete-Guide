@@ -20,6 +20,7 @@ const Expenses = (props) => {
         />
         {props.items.map((expense) => (
           <ExpenseItem
+            key={expense.id} // we need id for performance, without id react will visit every element when rendering the list
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
