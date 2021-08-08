@@ -5,8 +5,8 @@ import ExpenseForm from "./ExpenseForm";
 const NewExpense = (props) => {
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
+      id: Math.trunc(Math.random() * 10).toString(),
       ...enteredExpenseData,
-      id: Math.random().toString(),
     };
     // console.log(expenseData);
     props.onAddExpense(expenseData);
