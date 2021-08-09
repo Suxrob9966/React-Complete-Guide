@@ -44,6 +44,7 @@ const App = () => {
 
   return (
     <div>
+      {/* <button type="submit">Add New Expense</button> */}
       <NewExpense onAddExpense={addExpenseHandler} />
 
       {/*we pass expenses array elements as attributes into custom defined element ExpenseItem. the attribute names can be anything. But in ExpenseItem.js file we will have to access these attributes by these names. In that file these attributes will be stored as function parameter called props. We then acccess every attribute element as props[0].title for example.*/}
