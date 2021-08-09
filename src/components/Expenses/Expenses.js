@@ -1,7 +1,7 @@
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card"; // go up one folder and then go into UI folder
 import ExpensesFilter from "../ExpensesFilter/ExpensesFilter";
 import "./Expenses.css";
+import ExpensesList from "./ExpensesList";
 import React, { useState } from "react";
 
 const Expenses = (props) => {
@@ -16,19 +16,6 @@ const Expenses = (props) => {
     (item) => item.date.getFullYear().toString() === filteredYear
   );
 
-  let expensesContent = <p>No expenses for output</p>; //style={{ color: "white" }} for inline styling put this code into <p> tag
-
-  if (filteredExpense.length > 0) {
-    expensesContent = filteredExpense.map((expense) => (
-      <ExpenseItem
-        key={expense.id} // we need id for performance, without id react will visit every element when rendering the list
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />
-    ));
-  }
-
   return (
     <div>
       <Card className="expenses">
@@ -36,7 +23,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onExpenseFilterHandler={expenseFilterHandler}
         />
-        {expensesContent}
+        <ExpensesList items={filteredExpense} />
       </Card>
     </div>
   );
