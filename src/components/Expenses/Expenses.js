@@ -16,6 +16,19 @@ const Expenses = (props) => {
     (item) => item.date.getFullYear().toString() === filteredYear
   );
 
+  let expensesContent = <p>No expenses for output</p>; //style={{ color: "white" }} for inline styling put this code into <p> tag
+
+  if (filteredExpense.length > 0) {
+    expensesContent = filteredExpense.map((expense) => (
+      <ExpenseItem
+        key={expense.id} // we need id for performance, without id react will visit every element when rendering the list
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+  }
+
   return (
     <div>
       <Card className="expenses">
@@ -23,14 +36,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onExpenseFilterHandler={expenseFilterHandler}
         />
-        {filteredExpense.map((expense) => (
-          <ExpenseItem
-            key={expense.id} // we need id for performance, without id react will visit every element when rendering the list
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        {expensesContent}
       </Card>
     </div>
   );
