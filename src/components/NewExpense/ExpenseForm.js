@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import "./ExpenseForm.css";
+import React, { useState } from 'react';
+import './ExpenseForm.css';
 
-const ExpenseForm = (props) => {
-  const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState(""); // we need to pass empty string, because for the first time nothing was rendered on the screen
+const ExpenseForm = props => {
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState(''); // we need to pass empty string, because for the first time nothing was rendered on the screen
 
   //   const [userInput, setUserInput] = useState({
   //     enteredTitle: "",
@@ -12,7 +12,7 @@ const ExpenseForm = (props) => {
   //     enteredDate: "",
   //   });
 
-  const titleChangeHandler = (event) => {
+  const titleChangeHandler = event => {
     setEnteredTitle(event.target.value);
     // setUserInput({
     //   ...userInput,
@@ -20,7 +20,7 @@ const ExpenseForm = (props) => {
     // });
   };
 
-  const amountChangeHandler = (event) => {
+  const amountChangeHandler = event => {
     setEnteredAmount(event.target.value);
 
     // setUserInput({ // this is not safer way
@@ -37,7 +37,7 @@ const ExpenseForm = (props) => {
     // });
   };
 
-  const dateChangeHandler = (event) => {
+  const dateChangeHandler = event => {
     setEnteredDate(event.target.value);
     // setUserInput({
     //   ...userInput,
@@ -45,19 +45,19 @@ const ExpenseForm = (props) => {
     // });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = event => {
     event.preventDefault(); // to prevent page reload
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate), // construct new date
     };
 
     props.onSaveExpenseData(expenseData); // we pass the new form inputs up to the parent component (NewExpense)
-    setEnteredTitle(""); // to clear the input field
-    setEnteredAmount("");
-    setEnteredDate("");
+    setEnteredTitle(''); // to clear the input field
+    setEnteredAmount('');
+    setEnteredDate('');
   };
 
   return (
